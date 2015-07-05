@@ -2,8 +2,10 @@
 
 A simple substitution uses a single character shift to encrypt a message:
 
+```ruby
 shift("abcd", 1) => "bcde"
 shift("abcd", 2) => "cdef"
+```
 
 The provided simple substitution decipherer uses two heuristics to decode messages:
 
