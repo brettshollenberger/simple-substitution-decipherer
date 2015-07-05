@@ -7,10 +7,12 @@ shift("abcd", 1) => "bcde"
 shift("abcd", 2) => "cdef"
 ```
 
-The provided simple substitution decipherer uses two heuristics to decode messages:
+#### The Challenge:
 
-1) Rank decoded messages of all single character shifts (1-26) by the resultant distribution of characters compared to the "fingerprint" of the English language (using a major work of English literature, A Tale of Two Cities, as the seed text).
+Provide a simple substitution decipherer to decode messages encrypted using a simple substitution cipher.
 
-2) Rank decoded messages based on how many decoded words do not appear in the dictionary provided by a standard Linux distribution (`/usr/share/dict/words`)
+One hueristic to achieve this is to take a "fingerprint" of the English language--e.g. what is the distribution of characters across major English texts? Compare this fingerprint to the fingerprints of decrypted messages to guess the original cipher.
 
-The decipherer selects the single character decryption key that performs best across these two heuristics uniformly (although the "English fingerprint" heuristic is generally accepted on its own).
+Another hueristic is to rank how many decoded words do not appear in the dictionary. This hueristic will miss some obvious English words, like proper nouns, and is best used in conjunction with the first hueristic.
+
+It doesn't matter how you decipher messages, so long as your decipherer can decrypt the encrypted messages :)
